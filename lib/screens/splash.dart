@@ -23,9 +23,9 @@ class _SplashState extends State<Splash> {
                     "Hello There!",
                     style: TextStyle(fontFamily: "Roboto-Bold", fontSize: 30),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 20),
                   SizedBox(
-                width: 320,
+                width: 300,
                 child: Text(
                   "Automatic Identify verivication which enable you to verify with your credentials",
                   textAlign: TextAlign.center,
@@ -54,6 +54,7 @@ class _SplashState extends State<Splash> {
                         borderRadius: BorderRadius.circular(21),
                       ),
                       minimumSize: const Size(double.infinity, 50),
+                      backgroundColor: const Color(0xFF44B5ED)
                     ),
                     child: const Text("Login"),
                   ),
@@ -65,8 +66,9 @@ class _SplashState extends State<Splash> {
                         borderRadius: BorderRadius.circular(21),
                       ),
                       minimumSize: const Size(double.infinity, 50),
+                      backgroundColor: const Color(0xFFEB5F3C)
                     ),
-                    child: const Text("Login"),
+                    child: const Text("Sign In"),
                   ),
                 ],
               ),
