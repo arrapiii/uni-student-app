@@ -6,43 +6,129 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 
-class Login extends StatefulWidget{
+class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login>{
+class _LoginState extends State<Login> {
   bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
   var email, password;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _secureText = true;
 
-  showHide(){
+  showHide() {
     setState(() {
       _secureText = !_secureText;
     });
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color(0xFF942A2A),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 28, vertical: 72),
           child: Column(
             children: [
-              SizedBox(height: 24,),
+              Text(
+                "Login",
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    fontSize: 30),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Text(
+                "Welcome back ! Login with your credentials",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Email",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          TextField(
+                            cursorColor: Colors.black,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(15.0)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(21.0),
+                                  borderSide: BorderSide(color: Colors.blue)),
+                              hintText: "Email",
+                            ),
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 24.0,
+                          ),
+                          Text(
+                            "Password",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          TextField(
+                            cursorColor: Colors.black,
+                            keyboardType: TextInputType.text,
+                            obscureText: _secureText,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(14.0)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(21.0),
+                                  borderSide: BorderSide(color: Colors.blue)),
+                              hintText: "Password",
+                              suffixIcon: IconButton(
+                                onPressed: showHide,
+                                icon: Icon(_secureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                              ),
+                            ),
+                            style: TextStyle(color: Colors.black),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 24,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Does'nt have an account? ",
+                    "Don't have an account? ",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+                      color: Colors.black,
+                      fontSize: 16.0,
                     ),
                   ),
                   InkWell(
@@ -53,10 +139,10 @@ class _LoginState extends State<Login>{
                               builder: (context) => Register()));
                     },
                     child: Text(
-                      'Register',
+                      'Sign Up',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
+                        color: Colors.black,
+                        fontSize: 18.0,
                         decoration: TextDecoration.none,
                         fontWeight: FontWeight.bold,
                       ),
@@ -71,28 +157,23 @@ class _LoginState extends State<Login>{
     );
   }
 
-  void _login() async{
+  void _login() async {
     setState(() {
       _isLoading = true;
     });
-    var data = {
-      'email' : email,
-      'password' : password
-    };
+    var data = {'email': email, 'password': password};
 
     var res = await Network().auth(data, '/login');
     var body = json.decode(res.body);
-    if(body['success']){
+    if (body['success']) {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', json.encode(body['token']));
       localStorage.setString('user', json.encode(body['user']));
       Navigator.pushReplacement(
-          context,
-          new MaterialPageRoute(
-              builder: (context) => Home()
-          ),
+        context,
+        new MaterialPageRoute(builder: (context) => Home()),
       );
-    }else{
+    } else {
       body['message'];
     }
 

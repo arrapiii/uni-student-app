@@ -32,21 +32,24 @@ class _HomeState extends State<Home>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color(0xff151515),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: Color(0xff151515),
+        title: Text('Home', style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w500
+        ),),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.power_settings_new),
-            onPressed: (){
-              logout();
-            },
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Icons.power_settings_new),
+        //     onPressed: (){
+        //       logout();
+        //     },
+        //   )
+        // ],
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15),
           child: Column(
@@ -65,10 +68,73 @@ class _HomeState extends State<Home>{
                     ),
                   ),
                 ],
-              )
+              ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3)
+                  )
+                ]
+              ),
+              child: DataTable(
+                headingRowColor: MaterialStateColor.resolveWith((states) => Colors.black),
+             columns: [
+                      DataColumn(
+              label: Text('ID'),
+                      ),
+                      DataColumn(
+              label: Text('Name'),
+                      ),
+                      DataColumn(
+              label: Text('dsasad'),
+                      ),
+                      DataColumn(
+              label: Text('dsasdd'),
+                      ),
+                      DataColumn(
+              label: Text('action'),
+                      ),
+                    ], 
+              rows: [
+              
+                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black), cells: [
+              DataCell(Text('1')),
+              DataCell(Text('sadsad')),
+              DataCell(Text('dasads')),
+              DataCell(Text('asd')),
+              DataCell(Text('asds')),
+                     ]),
+                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
+              DataCell(Text('2')),
+              DataCell(Text('sadsad')),
+              DataCell(Text('dasads')),
+              DataCell(Text('asd')),
+              DataCell(Text('asds')),
+                     ]),
+                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
+              DataCell(Text('3')),
+              DataCell(Text('sadsad')),
+              DataCell(Text('dasads')),
+              DataCell(Text('asd')),
+              DataCell(Text('asds')),
+                     ]),
+                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
+              DataCell(Text('4')),
+              DataCell(Text('sadsad')),
+              DataCell(Text('dasads')),
+              DataCell(Text('asd')),
+              DataCell(Text('asds')),
+                     ])
+                ]),
+            )
             ],
           ),
         ),
+        
       ),
     );
   }
