@@ -35,8 +35,7 @@ class _SplashState extends State<Splash> {
                 ],
               ),
             ),
-            Container(
-              // color: Colors.amberAccent,
+            SizedBox(
               width: 330,
               height: 260,
               child: Image.asset(
