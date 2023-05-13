@@ -69,7 +69,9 @@ class _HomeState extends State<Home>{
                   ),
                 ],
               ),
+              SizedBox(height: 24.0,),
             Container(
+              // width: double.infinity,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -84,51 +86,50 @@ class _HomeState extends State<Home>{
                 headingRowColor: MaterialStateColor.resolveWith((states) => Colors.black),
              columns: [
                       DataColumn(
-              label: Text('ID'),
+              label: Text('ID', style: TextStyle(
+                color: Colors.white
+              )),
                       ),
                       DataColumn(
-              label: Text('Name'),
+              label: Text('Name', style: TextStyle(
+                color: Colors.white
+              )),
                       ),
                       DataColumn(
-              label: Text('dsasad'),
+              label: Text('dsasad', style: TextStyle(
+                color: Colors.white
+              )),
                       ),
                       DataColumn(
-              label: Text('dsasdd'),
+              label: Text('dsasdd', style: TextStyle(
+                color: Colors.white
+              )),
                       ),
                       DataColumn(
-              label: Text('action'),
+              label: Text('action', style: TextStyle(
+                color: Colors.white
+              )),
                       ),
                     ], 
               rows: [
               
                      DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black), cells: [
-              DataCell(Text('1')),
-              DataCell(Text('sadsad')),
-              DataCell(Text('dasads')),
-              DataCell(Text('asd')),
-              DataCell(Text('asds')),
+              DataCell(Text('1', style: TextStyle(
+                color: Colors.white
+              ),)),
+              DataCell(Text('sadsad', style: TextStyle(
+                color: Colors.white
+              ),)),
+              DataCell(Text('dasads', style: TextStyle(
+                color: Colors.white
+              ))),
+              DataCell(Text('asd', style: TextStyle(
+                color: Colors.white
+              ))),
+              DataCell(Text('asds', style: TextStyle(
+                color: Colors.white
+              ))),
                      ]),
-                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
-              DataCell(Text('2')),
-              DataCell(Text('sadsad')),
-              DataCell(Text('dasads')),
-              DataCell(Text('asd')),
-              DataCell(Text('asds')),
-                     ]),
-                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
-              DataCell(Text('3')),
-              DataCell(Text('sadsad')),
-              DataCell(Text('dasads')),
-              DataCell(Text('asd')),
-              DataCell(Text('asds')),
-                     ]),
-                     DataRow(color: MaterialStateColor.resolveWith((states) => Colors.black),cells: [
-              DataCell(Text('4')),
-              DataCell(Text('sadsad')),
-              DataCell(Text('dasads')),
-              DataCell(Text('asd')),
-              DataCell(Text('asds')),
-                     ])
                 ]),
             )
             ],

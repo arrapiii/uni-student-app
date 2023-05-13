@@ -56,62 +56,65 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Email",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          TextField(
-                            cursorColor: Colors.black,
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(21.0),
-                                  borderSide: BorderSide(color: Colors.blue)),
-                              hintText: "Email",
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Email",
+                              style: TextStyle(color: Colors.black),
                             ),
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          SizedBox(
-                            height: 24.0,
-                          ),
-                          Text(
-                            "Password",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          TextField(
-                            cursorColor: Colors.black,
-                            keyboardType: TextInputType.text,
-                            obscureText: _secureText,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(14.0)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(21.0),
-                                  borderSide: BorderSide(color: Colors.blue)),
-                              hintText: "Password",
-                              suffixIcon: IconButton(
-                                onPressed: showHide,
-                                icon: Icon(_secureText
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            TextFormField(
+                              cursorColor: Colors.black,
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.grey),
+                                    borderRadius: BorderRadius.circular(15.0)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(21.0),
+                                    borderSide: BorderSide(color: Colors.blue)),
+                                hintText: "Email",
                               ),
+                              style: TextStyle(color: Colors.black),
                             ),
-                            style: TextStyle(color: Colors.black),
-                          )
-                        ],
+                            SizedBox(
+                              height: 24.0,
+                            ),
+                            Text(
+                              "Password",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            TextFormField(
+                              cursorColor: Colors.black,
+                              keyboardType: TextInputType.text,
+                              obscureText: _secureText,
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.grey),
+                                    borderRadius: BorderRadius.circular(14.0)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(21.0),
+                                    borderSide: BorderSide(color: Colors.blue)),
+                                hintText: "Password",
+                                suffixIcon: IconButton(
+                                  onPressed: showHide,
+                                  icon: Icon(_secureText
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                ),
+                              ),
+                              style: TextStyle(color: Colors.black),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   )
