@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_11_5_2023/network/api.dart';
 import 'register.dart';
@@ -118,7 +117,31 @@ class _LoginState extends State<Login> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
+                height: 24,
+              ),
+              const SizedBox(height: 13),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 19),
+                child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          minimumSize: const Size(double.infinity, 50),
+                          backgroundColor: const Color(0xFF44B5ED)),
+                      child: const Text("Login"),
+                    ),
+              ),
+              const SizedBox(
                 height: 24,
               ),
               Row(

@@ -4,23 +4,17 @@ import 'screens/home.dart';
 import 'screens/login.dart';
 import 'screens/details.dart';
 import 'screens/splash.dart';
+import 'screens/first_splash.dart';
 
-void main() {
-  runApp(const Details());
-}
+void main() => runApp(MaterialApp(
+  initialRoute: '/',
+  debugShowCheckedModeBanner: false,
+  routes: {
+    '/login': (context) => Login(),
+    '/splash': (context) => const Splash(),
+    '/': (context) => const FirstSplash(),
+    '/home': (context) => Home()
+  },
+  theme: ThemeData(fontFamily: "Roboto") ,
+));
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Splash(),
-    );
-  }
-}
