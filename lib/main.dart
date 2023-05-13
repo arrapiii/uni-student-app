@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_11_5_2023/screens/formm.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/home.dart';
 import 'screens/login.dart';
@@ -6,7 +7,7 @@ import 'screens/details.dart';
 import 'screens/splash.dart';
 
 void main() {
-  runApp(const Details());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -20,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Splash(),
+      home: MyForm(),
     );
   }
 }
