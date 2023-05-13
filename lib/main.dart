@@ -14,7 +14,9 @@ void main() => runApp(MaterialApp(
     '/login': (context) => Login(),
     '/splash': (context) => const Splash(),
     '/': (context) => const FirstSplash(),
-    '/home': (context) => Home()
+    '/home': (context) => Home(),
+    '/details': (context) => const Details(),
+
   },
   theme: ThemeData(fontFamily: "Roboto") ,
 ));
