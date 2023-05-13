@@ -16,6 +16,7 @@ void main() => runApp(MaterialApp(
     '/': (context) => const FirstSplash(),
     '/home': (context) => Home(),
     '/details': (context) => const Details(),
+    '/formpost': (context) => MyForm()
 
   },
   theme: ThemeData(fontFamily: "Roboto") ,
