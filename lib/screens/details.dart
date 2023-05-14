@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_11_5_2023/screens/home.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key});
@@ -81,16 +82,21 @@ class _DetailsState extends State<Details> {
                                         style: TextStyle(
                                             fontFamily: "Roboto", fontSize: 18),
                                       ),
-                                      
                                     ]),
                                 Container(
-                                  margin: EdgeInsets.only(left:55),
+                                  margin: EdgeInsets.only(left: 55),
                                   child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
                                         ElevatedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => Home(),
+                                                ));
+                                          },
                                           style: ElevatedButton.styleFrom(
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:

@@ -165,7 +165,7 @@ class _LoginState extends State<Login> {
                               builder: (context) => Register()));
                     },
                     child: Text(
-                      'Sign Up',
+                      'Register',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18.0,

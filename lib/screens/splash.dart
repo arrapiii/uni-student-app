@@ -1,5 +1,6 @@
   import 'package:flutter/material.dart';
   import 'package:flutter_11_5_2023/screens/login.dart';
+import 'package:flutter_11_5_2023/screens/register.dart';
 
   class Splash extends StatefulWidget {
     const Splash({super.key});
@@ -68,7 +69,14 @@
                     ),
                     const SizedBox(height: 13),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Register(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(21),
